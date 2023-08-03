@@ -249,9 +249,9 @@ const RegistroConstruccion = () => {
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td>Deuda Total</td>
-                    <td>${deudaTotal}</td>
-                    <td>Total Pagado</td>
+                    <td>Debe ${deudaTotal}</td>
+                    <td></td>
+                    <td>Ha pagado</td>
                     <td>${totalPagado}</td>
                   </tr>
                 </tfoot>
