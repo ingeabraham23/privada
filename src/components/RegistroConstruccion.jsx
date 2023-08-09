@@ -241,18 +241,17 @@ const RegistroConstruccion = () => {
                   {faenas.map((faena, index) => (
                     <tr key={index}>
                       <td>{formatDate(faena.fecha)}</td>
-                      <td>{faena.asistencia ? "Sí" : "No"}</td>
-                      <td>{faena.pagada ? "Sí" : "No"}</td>
+                      <td style={{ backgroundColor: faena.asistencia ? "green" : "red" }}>{faena.asistencia ? "Sí" : "No"}</td>
+                      <td style={{ backgroundColor: faena.pagada ? "green" : faena.asistencia ? "green" :"red" }}>{faena.pagada ? "$100" : faena.asistencia ? "" : "No"}</td>
                       <td>${getDeuda(faena.asistencia, faena.pagada)}</td>
                     </tr>
                   ))}
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td>Debe ${deudaTotal}</td>
                     <td></td>
-                    <td>Ha pagado</td>
-                    <td>${totalPagado}</td>
+                    <td colSpan={2}>Ha pagado ${totalPagado}</td>
+                    <td>Debe ${deudaTotal}</td>
                   </tr>
                 </tfoot>
               </table>

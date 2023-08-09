@@ -38,8 +38,56 @@ const registrosConstruccion = [
       descripcion: "1 Viaje de Cantera",
       monto: 1150,
     },
+    {
+      fecha: "2023-07-28",
+      tipo: "material",
+      descripcion: "5 Bultos de Cemento Anahuac",
+      monto: 1120,
+    },
+    {
+      fecha: "2023-07-28",
+      tipo: "material",
+      descripcion: "20 Bultos de Cal Santa Cruz",
+      monto: 1480,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "2 Viajes de Cantera",
+      monto: 2300,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "1/2(medio) Viaje de Arena Rosa",
+      monto: 480,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "200 Ladrillos",
+      monto: 640,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "10 Bultos de Cal Santa Cruz",
+      monto: 740,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "10 Varillas de 3/8 (3 octavos)",
+      monto: 1500,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "material",
+      descripcion: "2 Ceguetas",
+      monto: 50,
+    },
   
-    //Pago de albañil 22 Julio 2023
+    //mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - 
     {
       fecha: "2023-07-22",
       tipo: "mano-de-obra",
@@ -52,13 +100,30 @@ const registrosConstruccion = [
       descripcion: "Baltazar (Ayudante)",
       monto: 1400,
     },
-    //Faenas
-  /*   {
-      fecha: "2023-08-01",
-      tipo: "faenas",
-      descripcion: "Pago de faena por ausencia",
-      monto: 200,
-    }, */
+    {
+      fecha: "2023-07-29",
+      tipo: "mano-de-obra",
+      descripcion: "Costantino (Maestro) 4 días",
+      monto: 1334,
+    },
+    {
+      fecha: "2023-07-29",
+      tipo: "mano-de-obra",
+      descripcion: "Baltazar (Ayudante) 4 días",
+      monto: 936,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "mano-de-obra",
+      descripcion: "Costantino (Maestro) 5 días",
+      monto: 1670,
+    },
+    {
+      fecha: "2023-08-05",
+      tipo: "mano-de-obra",
+      descripcion: "Baltazar (Ayudante) 5 días",
+      monto: 1170,
+    },
     //Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-
     {
       fecha: "2023-07-09",
@@ -92,30 +157,8 @@ const registrosConstruccion = [
       monto: 5000,
     },
     //Material-Material-Material-Material-Material-Material-Material-Material-Material-Material-Material-
-    {
-      fecha: "2023-07-28",
-      tipo: "material",
-      descripcion: "5 Bultos de Cemento Anahuac",
-      monto: 1120,
-    },
-    {
-      fecha: "2023-07-28",
-      tipo: "material",
-      descripcion: "20 Bultos de Cal Santa Cruz",
-      monto: 1480,
-    },
-    {
-      fecha: "2023-07-29",
-      tipo: "mano-de-obra",
-      descripcion: "Costantino (Maestro) 4 días",
-      monto: 1334,
-    },
-    {
-      fecha: "2023-07-29",
-      tipo: "mano-de-obra",
-      descripcion: "Baltazar (Ayudante) 4 días",
-      monto: 936,
-    },
+    
+    
   ];
 
   export default registrosConstruccion;
