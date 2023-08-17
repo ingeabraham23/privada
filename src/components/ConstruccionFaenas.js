@@ -48,6 +48,19 @@ const FAENAS =[
       asistencia: false,
       pagada: false,
     },
+    {
+      fecha: "2023-08-12",
+      nombre: "Lucia",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
+      nombre: "Lucia",
+      asistencia: false,
+      pagada: false,
+    },
+
     //Isabel
     {fecha: "2023-07-13",
       nombre: "Isabel",
@@ -88,10 +101,23 @@ const FAENAS =[
       fecha: "2023-08-05",
       nombre: "Isabel",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-08-06",
+      nombre: "Isabel",
+      asistencia: false,
+      pagada: true,
+    },
+
+    {
+      fecha: "2023-08-12",
+      nombre: "Isabel",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
       nombre: "Isabel",
       asistencia: false,
       pagada: false,
@@ -141,6 +167,19 @@ const FAENAS =[
     },
     {
       fecha: "2023-08-06",
+      nombre: "Abraham",
+      asistencia: false,
+      pagada: false,
+    },
+
+    {
+      fecha: "2023-08-12",
+      nombre: "Abraham",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
       nombre: "Abraham",
       asistencia: false,
       pagada: false,
@@ -196,6 +235,19 @@ const FAENAS =[
       pagada: false,
     },
 
+    {
+      fecha: "2023-08-12",
+      nombre: "Maximina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
+      nombre: "Maximina",
+      asistencia: true,
+      pagada: false,
+    },
+
     //Alejandra
     {
       fecha: "2023-07-13",
@@ -245,6 +297,19 @@ const FAENAS =[
       asistencia: true,
       pagada: false,
     },
+
+    {
+      fecha: "2023-08-12",
+      nombre: "Alejandra",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
+      nombre: "Alejandra",
+      asistencia: false,
+      pagada: false,
+    },
     //Agustina
     {
       fecha: "2023-07-13",
@@ -290,6 +355,18 @@ const FAENAS =[
     },
     {
       fecha: "2023-08-06",
+      nombre: "Agustina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-12",
+      nombre: "Agustina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-13",
       nombre: "Agustina",
       asistencia: true,
       pagada: false,

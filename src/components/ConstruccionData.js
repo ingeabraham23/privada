@@ -86,6 +86,25 @@ const registrosConstruccion = [
       descripcion: "2 Ceguetas",
       monto: 50,
     },
+    {
+      fecha: "2023-08-10",
+      tipo: "material",
+      descripcion: "10 Bultos de Cal Santa Cruz",
+      monto: 740,
+    },
+    {
+      fecha: "2023-08-10",
+      tipo: "material",
+      descripcion: "10 Bultos de Cemento Anahuac",
+      monto: 2180,
+    },
+    {
+      fecha: "2023-08-10",
+      tipo: "material",
+      descripcion: "20 Kg de Alambron",
+      monto: 540,
+    },
+    
   
     //mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - mano de obra - 
     {
@@ -124,38 +143,63 @@ const registrosConstruccion = [
       descripcion: "Baltazar (Ayudante) 5 días",
       monto: 1170,
     },
+
+    {
+      fecha: "2023-08-12",
+      tipo: "mano-de-obra",
+      descripcion: "Costantino (Maestro)",
+      monto: 2000,
+    },
+    {
+      fecha: "2023-08-12",
+      tipo: "mano-de-obra",
+      descripcion: "Baltazar (Ayudante)",
+      monto: 1400,
+    },
+    {
+      fecha: "2023-08-12",
+      tipo: "mano-de-obra",
+      descripcion: "Reparacion de Carretilla (Herrero)",
+      monto: 250,
+    },
     //Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-
     {
-      fecha: "2023-07-09",
+      fecha: "2023-07-10",
+      tipo: "cooperacion",
+      descripcion: "Lucia",
+      monto: 5000,
+    },
+    {
+      fecha: "2023-07-10",
+      tipo: "cooperacion",
+      descripcion: "Isabel (Abraham)",
+      monto: 5000,
+    },
+    {
+      fecha: "2023-07-10",
       tipo: "cooperacion",
       descripcion: "Abraham",
       monto: 5000,
     },
     {
-      fecha: "2023-07-09",
+      fecha: "2023-07-10",
       tipo: "cooperacion",
       descripcion: "Maximina",
-      monto: 5385,
-    },
-    {
-      fecha: "2023-07-09",
-      tipo: "cooperacion",
-      descripcion: "Lucia",
-      monto: 2500,
-    },
-  
-    {
-      fecha: "2023-07-27",
-      tipo: "cooperacion",
-      descripcion: "Agustina",
       monto: 5000,
     },
     {
-      fecha: "2023-07-27",
+      fecha: "2023-07-10",
       tipo: "cooperacion",
-      descripcion: "Isabel",
+      descripcion: "Alejandra (Maximina)",
       monto: 5000,
     },
+    {
+      fecha: "2023-07-10",
+      tipo: "cooperacion",
+      descripcion: "Agustina (Abraham)",
+      monto: 5000,
+    },
+    
     //Material-Material-Material-Material-Material-Material-Material-Material-Material-Material-Material-
     
     
