@@ -1,16 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import "./Cronograma.css"
 
 import { format } from "date-fns";
 import es from "date-fns/locale/es";
 
+import "./RegistroConstruccion.css";
 import html2canvas from "html2canvas";
 
 import registrosConstruccion from "./ConstruccionData";
+import FAENAS from "./ConstruccionFaenas";
+import PagosFaenas from "./PagosFaenas";
 
-const Cronograma = () => {
+const RegistroConstruccion = () => {
   const [balancesPorTipo, setBalancesPorTipo] = useState({});
   const [registrosCronologicos, setRegistrosCronologicos] = useState([]);
   // eslint-disable-next-line no-unused-vars
@@ -19,6 +21,8 @@ const Cronograma = () => {
 
   const tablaRefCronologica = useRef(null);
   const tablaRefPorTipo = useRef(null);
+  const tablaRefFaenas = useRef(null);
+  const tablaRefPagoFaenas = useRef(null);
 
   function capturarTabla(tabla) {
     const fecha = new Date();
@@ -38,13 +42,13 @@ const Cronograma = () => {
     const date = new Date(dateString + "T00:00:00");
     date.setHours(12); // Ajustamos manualmente la hora para evitar problemas con la zona horaria
 
-    const formattedDate = format(date, "eeee, d 'de' MMM", {
+    const formattedDate = format(date, "eeee, d 'de' MMMM 'del' yyyy", {
       locale: es,
     });
     return formattedDate;
   };
 
-  /* // Ordenar los registros cronológicamente al montar el componente
+  // Ordenar los registros cronológicamente al montar el componente
   useEffect(() => {
     const registrosOrdenados = [...registrosConstruccion]
       .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
@@ -69,42 +73,34 @@ const Cronograma = () => {
     )-30000;//Restar la cooperacion para solo calcular gastos
     setTotalMonto(totalMonto);
     setRegistrosCronologicos(registrosConBalance);
+  }, [registrosCronologicos]);
 
-  }, [registrosCronologicos]); */
-  // Ordenar los registros cronológicamente al montar el componente
-  useEffect(() => {
-    const registrosOrdenados = [...registrosConstruccion]
-      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
-      .map((registro) => ({
-        ...registro,
-        fecha: formatDate(registro.fecha),
-      }));
+  const getDeuda = (asistencia, pagada) => {
+    if (asistencia || pagada) {
+      return 0;
+    } else {
+      return 100;
+    }
+  };
 
-    let balanceGeneral = 0;
-    const registrosConBalance = registrosOrdenados.map((registro) => {
-      const { tipo, monto } = registro;
-      const balance =
-        tipo === "material" || tipo === "mano-de-obra"
-          ? balanceGeneral - monto
-          : balanceGeneral + monto;
-      balanceGeneral = balance;
-      return { ...registro, balance };
-    });
+  // Reducción de FAENAS para obtener faenas y deuda total por nombre
+  const faenasYDeudaPorNombre = FAENAS.reduce((acc, faena) => {
+    const { nombre, asistencia, pagada } = faena;
+    const deuda = getDeuda(asistencia, pagada);
+    if (!acc[nombre]) {
+      acc[nombre] = {
+        faenas: [],
+        deudaTotal: 0,
+        totalPagado: 0,
+      };
+    }
+    acc[nombre].faenas.push(faena);
+    acc[nombre].deudaTotal += deuda;
+    acc[nombre].totalPagado += pagada ? 100 : 0;
+    return acc;
+  }, {});
 
-    // Calcular el totalMonto aquí y establecerlo
-    const totalGastos = registrosConBalance.reduce(
-      (acc, registro) => acc + registro.monto,
-      0
-    ) - 30000; // Restar la cooperación para calcular solo los gastos
-    setTotalMonto(totalGastos);
-
-    // Actualizar los registros cronológicos
-    setRegistrosCronologicos(registrosConBalance);
-
-  }, []); // Sin dependencias, se ejecuta una vez al montar el componente
-
-
-  /* // Actualizar balances por tipo y balance general al cambiar los registros cronológicos
+  // Actualizar balances por tipo y balance general al cambiar los registros cronológicos
   useEffect(() => {
     let balanceGeneral = 0;
     const balances = registrosCronologicos.reduce((acc, registro) => {
@@ -126,40 +122,33 @@ const Cronograma = () => {
 
     setBalancesPorTipo(balances);
     setCaja(balanceGeneral);
-  }, [registrosCronologicos]); */
-  // Actualizar balances por tipo y balance general al cambiar los registros cronológicos
-  useEffect(() => {
-    // eslint-disable-next-line no-unused-vars
-    let balanceGeneral = 0;
-    const balances = registrosCronologicos.reduce((acc, registro) => {
-      const { tipo, monto } = registro;
-      if (!acc[tipo]) {
-        acc[tipo] = 0;
-      }
+  }, [registrosCronologicos]);
 
-      if (tipo === "material" || tipo === "mano-de-obra") {
-        balanceGeneral -= monto;
-        acc[tipo] -= monto;
-      } else {
-        balanceGeneral += monto;
-        acc[tipo] += monto;
-      }
+  const totalDeudas = Object.values(faenasYDeudaPorNombre).reduce(
+    (acc, { deudaTotal }) => acc + deudaTotal,
+    0
+  );
+  // Sumar todas las cantidades de Total Pagado para obtener el total general de pagos
+  const totalPagado = Object.values(faenasYDeudaPorNombre).reduce(
+    (acc, { totalPagado }) => acc + totalPagado,
+    0
+  );
 
-      return acc;
-    }, {});
-
-    // Actualizar los balances por tipo
-    setBalancesPorTipo(balances);
-
-  }, [registrosCronologicos]); // Dependencia: registrosCronologicos
-
+  const totalPagadoFaenas = PagosFaenas.reduce(
+    (total, item) => total + item.pago,
+    0
+  );
 
   const formatNumberWithCommas = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   return (
-    <div className="container">
-      
+    <div>
+      <p>
+        Muro de contencion SUR. Se cooperan seis hermanos: Lucia, Isabel,
+        Abraham, Maximina, Alejandra y Agustina. Los albañiles comenzaron a
+        trabajar el día: Lunes 17 de Julio del 2023.
+      </p>
       <table ref={tablaRefCronologica}>
         <thead>
           <tr>
@@ -179,8 +168,8 @@ const Cronograma = () => {
               <td>{registro.fecha}</td>
               <td>{registro.tipo}</td>
               <td>{registro.descripcion}</td>
-              <td>{formatNumberWithCommas(registro.monto)}</td>
-              <td>{formatNumberWithCommas(registro.balance)}</td>
+              <td>{formatNumberWithCommas(registro.monto.toFixed(2))}</td>
+              <td>{formatNumberWithCommas(registro.balance.toFixed(2))}</td>
             </tr>
           ))}
         </tbody>
@@ -225,7 +214,7 @@ const Cronograma = () => {
                         <td>{registro.fecha}</td>
                         <td>{registro.tipo}</td>
                         <td>{registro.descripcion}</td>
-                        <td>$ {formatNumberWithCommas(registro.monto.toFixed(2))}</td>
+                        <td>{registro.monto}</td>
                       </tr>
                     );
                   })}
@@ -249,8 +238,129 @@ const Cronograma = () => {
       >
         Capturar tabla
       </button>
+      <hr></hr>
+      <h3>Faenas</h3>
+      <div ref={tablaRefFaenas}>
+        {Object.entries(faenasYDeudaPorNombre).map(
+          ([nombre, { faenas, deudaTotal, totalPagado }]) => (
+            <div key={nombre}>
+              <table className="tabla-faenas">
+                <thead>
+                  <tr>
+                    <th colSpan={4}>Faenas - {nombre}</th>
+                  </tr>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Asistencia</th>
+                    <th>Pagada</th>
+                    <th>Deuda</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {faenas.map((faena, index) => (
+                    <tr key={index}>
+                      <td>{formatDate(faena.fecha)}</td>
+                      <td
+                        style={{
+                          backgroundColor: faena.asistencia ? "green" : "red",
+                        }}
+                      >
+                        {faena.asistencia ? "Sí" : "No"}
+                      </td>
+                      <td
+                        style={{
+                          backgroundColor: faena.pagada
+                            ? "green"
+                            : faena.asistencia
+                            ? "green"
+                            : "red",
+                        }}
+                      >
+                        {faena.pagada ? "$100" : faena.asistencia ? "" : "No"}
+                      </td>
+                      <td>${getDeuda(faena.asistencia, faena.pagada)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td colSpan={2}>Ha pagado ${totalPagado}</td>
+                    <td>Debe ${deudaTotal}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          )
+        )}
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th colSpan={2}>Totales de Faenas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total General de Deudas</td>
+                <td>${totalDeudas}</td>
+              </tr>
+              <tr>
+                <td>Total General Pagado</td>
+                <td>${totalPagado}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Total General Faenas</td>
+                <td>${totalDeudas + totalPagado}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <button
+        className="primary-button"
+        onClick={() => capturarTabla(tablaRefFaenas.current)}
+      >
+        Capturar tabla
+      </button>
+
+      <div>
+        <table ref={tablaRefPagoFaenas}>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Nombre</th>
+              <th>Pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PagosFaenas.map((item, index) => (
+              <tr key={index}>
+                <td>{item.fecha}</td>
+                <td>{item.nombre}</td>
+                <td>{item.pago}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total Pagado Faenas</td>
+              <td></td>
+              <td>${totalPagadoFaenas}</td>
+            </tr>
+          </tfoot>
+        </table>
+        <button
+          className="primary-button"
+          onClick={() => capturarTabla(tablaRefPagoFaenas.current)}
+        >
+          Capturar tabla
+        </button>
+      </div>
     </div>
   );
 };
 
-export default Cronograma;
+export default RegistroConstruccion;
