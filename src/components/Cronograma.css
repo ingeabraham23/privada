@@ -4,7 +4,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 3px;
     margin-top: 3px;
-    font-size: 9px;
+    font-size: 8px;
     background-color: #fffb00;
     color: #000000;
     border: 1px solid #000000;
@@ -21,20 +21,10 @@ table {
     font-weight: bold;
   }
   
-  
-  /* Estilos para las tablas separadas por tipo */
-  div > table {
-    margin-bottom: 5px;
-    font-size: 8px;
-    padding: 1px;
-    background-color: #fffec0;
-    border: 1px solid #dddddd;
-  }
-  
   /* Estilos responsive para dispositivos móviles */
   @media screen and (max-width: 767px) {
     table {
-      font-size: 12px; /* Tamaño de fuente reducido para móviles */
+      font-size: 8px; /* Tamaño de fuente reducido para móviles */
     }
   
     table th,
@@ -65,4 +55,9 @@ table {
     border-radius: 4px;
     cursor: pointer;
     border: 1px solid #00ccff;
+  }
+
+  .container{
+    margin-top: 50px;
+    width: 100%;
   }

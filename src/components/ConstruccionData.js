@@ -159,7 +159,7 @@ const registrosConstruccion = [
     {
       fecha: "2023-08-12",
       tipo: "mano-de-obra",
-      descripcion: "Reparacion de Carretilla (Herrero)",
+      descripcion: "Reparacion de Carretilla",
       monto: 250,
     },
     //Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-Cooperacion-

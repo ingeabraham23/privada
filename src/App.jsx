@@ -1,13 +1,24 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import RegistroConstruccion from './components/RegistroConstruccion.jsx';
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Cronograma from "./components/Cronograma";
+import Faenas from "./components/Faenas";
+import Informacion from "./components/Informacion";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <RegistroConstruccion />
-    </div>
+    <HashRouter>
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Cronograma />} />
+            <Route path="/faenas" element={<Faenas />} />
+            <Route path="/informacion" element={<Informacion />} />
+          </Routes>
+        </div>
+    </HashRouter>
   );
-};
+}
 
 export default App;

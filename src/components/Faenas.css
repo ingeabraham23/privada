@@ -1,0 +1,63 @@
+/* Faenas.css */
+  .tabla-faenas{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-size: 8px;
+    background-color: #00b7ff;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  .encabezados-faenas{
+    background-color: #444444;
+    padding: 1px;
+    border: 1px solid #000000;
+    color: #fff;
+  }
+
+  .pie-faenas{
+    background-color: #444444;
+    padding: 1px;
+    border: 1px solid #000000;
+    color: #fff;
+    text-align: right;
+  }
+  .pie-faenas-resta{
+    background-color: #ff0000;
+    padding: 1px;
+    border: 1px solid #000000;
+    color: #fff;
+    text-align: right;
+  }
+  
+  /* Estilos responsive para dispositivos móviles */
+  @media screen and (max-width: 767px) {
+    table {
+      width: 100%;
+      font-size: 8px;
+    }
+  
+    table th,
+    table td {
+      border: 1px solid #000000;
+      padding: 1px;
+    }
+  }
+  
+  .primary-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #00ccff;
+  }
+  
+  /* Elimina la regla width de .containerFaenas si no es necesario */
+  .containerFaenas {
+    margin-top: 50px;
+    /* width: 100%; */ /* Puede que no sea necesario, ya que se aplicará a las tablas directamente */
+  }
+  

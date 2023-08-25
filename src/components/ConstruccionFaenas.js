@@ -61,7 +61,20 @@ const FAENAS =[
       pagada: false,
     },
 
-    //Isabel
+    {
+      fecha: "2023-08-19",
+      nombre: "Lucia",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
+      nombre: "Lucia",
+      asistencia: false,
+      pagada: false,
+    },
+
+    //Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---Isabel---
     {fecha: "2023-07-13",
       nombre: "Isabel",
       asistencia: true,
@@ -122,7 +135,19 @@ const FAENAS =[
       asistencia: false,
       pagada: false,
     },
-    //Abraham
+    {
+      fecha: "2023-08-19",
+      nombre: "Isabel",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
+      nombre: "Isabel",
+      asistencia: false,
+      pagada: false,
+    },
+    //Abraham---Abraham---Abraham---Abraham---Abraham---Abraham---Abraham---Abraham---Abraham---
     {
       fecha: "2023-07-13",
       nombre: "Abraham",
@@ -163,13 +188,13 @@ const FAENAS =[
       fecha: "2023-08-05",
       nombre: "Abraham",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-08-06",
       nombre: "Abraham",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
 
     {
@@ -180,12 +205,24 @@ const FAENAS =[
     },
     {
       fecha: "2023-08-13",
+      nombre: "Abraham",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-19",
+      nombre: "Abraham",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
       nombre: "Abraham",
       asistencia: false,
       pagada: false,
     },
     
-    //Maxi
+    //Maximina---Maximina---Maximina---Maximina---Maximina---Maximina---Maximina---Maximina---Maximina---
     {
       fecha: "2023-07-13",
       nombre: "Maximina",
@@ -247,13 +284,25 @@ const FAENAS =[
       asistencia: true,
       pagada: false,
     },
+    {
+      fecha: "2023-08-19",
+      nombre: "Maximina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
+      nombre: "Maximina",
+      asistencia: true,
+      pagada: false,
+    },
 
-    //Alejandra
+    //Alejandra---Alejandra---Alejandra---Alejandra---Alejandra---Alejandra---Alejandra---Alejandra---
     {
       fecha: "2023-07-13",
       nombre: "Alejandra",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-07-14",
@@ -289,7 +338,7 @@ const FAENAS =[
       fecha: "2023-08-05",
       nombre: "Alejandra",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-08-06",
@@ -306,6 +355,18 @@ const FAENAS =[
     },
     {
       fecha: "2023-08-13",
+      nombre: "Alejandra",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-19",
+      nombre: "Alejandra",
+      asistencia: false,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
       nombre: "Alejandra",
       asistencia: false,
       pagada: false,
@@ -327,13 +388,13 @@ const FAENAS =[
       fecha: "2023-07-20",
       nombre: "Agustina",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-07-21",
       nombre: "Agustina",
       asistencia: false,
-      pagada: false,
+      pagada: true,
     },
     {
       fecha: "2023-07-29",
@@ -367,6 +428,18 @@ const FAENAS =[
     },
     {
       fecha: "2023-08-13",
+      nombre: "Agustina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-19",
+      nombre: "Agustina",
+      asistencia: true,
+      pagada: false,
+    },
+    {
+      fecha: "2023-08-20",
       nombre: "Agustina",
       asistencia: true,
       pagada: false,
