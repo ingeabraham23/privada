@@ -7,6 +7,9 @@ const PagosFaenas = [
     { fecha: "Sabado 12 de Agosto de 2023", nombre: "Aldahir (Ayudante)", pago: 200 },
     { fecha: "Sabado 19 de Agosto de 2023", nombre: "Aldahir (Ayudante)", pago: 200 },
     { fecha: "Sabado 19 de Agosto de 2023", nombre: "Desayuno", pago: 140 },
+    { fecha: "Viernes 25 de Agosto de 2023", nombre: "Medio Viaje de Cantera", pago: 650 },
+    { fecha: "Viernes 25 de Agosto de 2023", nombre: "3 B. de Cal Santa Cruz", pago: 222 },
+    { fecha: "Sabado 26 de Agosto de 2023", nombre: "Aldahir (Ayudante)", pago: 200 },
   ];
 
   export default PagosFaenas;
