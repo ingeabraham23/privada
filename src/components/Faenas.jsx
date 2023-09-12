@@ -187,29 +187,29 @@ const Faenas = () => {
               </tr>
               <tr>
                 <td>Total General Pagado</td>
-                <td>${totalPagado}</td>
+                <td>${formatNumberWithCommas(totalPagado)}</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <td className="pie-faenas">Total General Faenas</td>
-                <td className="pie-faenas">${totalDeudas + totalPagado}</td>
+                <td className="pie-faenas">$ {formatNumberWithCommas(totalDeudas + totalPagado)}</td>
               </tr>
               <tr>
                 <td className="pie-faenas-resta">-Total Gastos Faenas</td>
-                <td className="pie-faenas-resta">${totalPagadoFaenas}</td>
+                <td className="pie-faenas-resta">$ {formatNumberWithCommas(totalPagadoFaenas)}</td>
               </tr>
               <tr>
                 <td className="pie-faenas">Quedaría en caja</td>
-                <td className="pie-faenas">${(totalDeudas + totalPagado)-totalPagadoFaenas}</td>
+                <td className="pie-faenas">$ {formatNumberWithCommas((totalDeudas + totalPagado)-totalPagadoFaenas)}</td>
               </tr>
               <tr>
                 <td className="pie-faenas-resta">-Deudas Faenas</td>
-                <td className="pie-faenas-resta">${totalDeudas}</td>
+                <td className="pie-faenas-resta">$ {formatNumberWithCommas(totalDeudas)}</td>
               </tr>
               <tr>
                 <td className="pie-faenas">Queda en Caja</td>
-                <td className="pie-faenas">${(totalDeudas + totalPagado)-totalPagadoFaenas-totalDeudas}</td>
+                <td className="pie-faenas">$ {formatNumberWithCommas((totalDeudas + totalPagado)-totalPagadoFaenas-totalDeudas)}</td>
               </tr>
             </tfoot>
           </table>
